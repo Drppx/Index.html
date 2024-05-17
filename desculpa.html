@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas vale💘?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb; /* Fondo rosita */
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        #yesImage {
+            display: none;
+            margin-top: 20px;
+            width: 200px; /* Ajusta el tamaño según sea necesario */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me perdonas vale💘?</h1>
+        <div class="buttons">
+            <button class="btn btn-yes" onclick="showImage()">yess</button>
+            <button class="btn btn-no" id="noButton" onmouseover="moveNoButton()">No</button>
+        </div>
+        <img id="yesImage" src="" alt="yo tambienn te qroo JAJA">
+    </div>
+
+    <script>
+        function moveNoButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const noButtonRect = noButton.getBoundingClientRect();
+            
+            const maxX = containerRect.width - noButtonRect.width;
+            const maxY = containerRect.height - noButtonRect.height;
+            
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+        }
+
+        function showImage() {
+            const yesImage = document.getElementById('yesImage');
+            yesImage.src = "https://user-images.githubusercontent.com/60184474/118832416-3b2f3f00-b8e6-11eb-850f-67d74eb49f5e.jpg"; // URL de la imagen del mono
+            yesImage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
